@@ -1,0 +1,32 @@
+{
+  "name": "your-name/wordpress-heroku",
+  "description": "WordPress on Heroku with Azure MySQL",
+  "require": {
+    "php": ">=7.4",
+    "ext-gd": "*",
+    "ext-mbstring": "*",
+    "johnpbloch/wordpress": "^6.0",
+    "composer/installers": "^2.0",
+    "wpackagist-plugin/jetpack": "^12.0",
+    "wpackagist-plugin/wp-mail-smtp": "^3.0"
+  },
+  "extra": {
+    "wordpress-install-dir": "public",
+    "installer-paths": {
+      "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "config": {
+    "allow-plugins": {
+      "johnpbloch/wordpress-core-installer": true,
+      "composer/installers": true
+    }
+  }
+}
